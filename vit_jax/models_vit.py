@@ -211,13 +211,13 @@ class Encoder(nn.Module):
 class VisionTransformer(nn.Module):
   """VisionTransformer."""
 
-  num_classes: int
+#   num_classes: int
   patches: Any
   transformer: Any
   hidden_size: int
   resnet: Optional[Any] = None
   representation_size: Optional[int] = None
-  classifier: str = 'token'
+  classifier: str = 'unpooled'
   head_bias_init: float = 0.
   encoder: Type[nn.Module] = Encoder
   model_name: Optional[str] = None
@@ -299,10 +299,10 @@ class VisionTransformer(nn.Module):
     else:
       x = IdentityLayer(name='pre_logits')(x)
 
-    if self.num_classes:
-      x = nn.Dense(
-          features=self.num_classes,
-          name='head',
-          kernel_init=nn.initializers.zeros,
-          bias_init=nn.initializers.constant(self.head_bias_init))(x)
+    # if self.num_classes:
+    #   x = nn.Dense(
+    #       features=self.num_classes,
+    #       name='head',
+    #       kernel_init=nn.initializers.zeros,
+    #       bias_init=nn.initializers.constant(self.head_bias_init))(x)
     return x

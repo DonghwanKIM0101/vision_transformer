@@ -186,8 +186,8 @@ def load_pretrained(*, pretrained_path, init_params, model_config):
     if 'pre_logits' in restored_params:
       logging.info('load_pretrained: drop-head variant')
       restored_params['pre_logits'] = {}
-  restored_params['head']['kernel'] = init_params['head']['kernel']
-  restored_params['head']['bias'] = init_params['head']['bias']
+#   restored_params['head']['kernel'] = init_params['head']['kernel']
+#   restored_params['head']['bias'] = init_params['head']['bias']
 
   if 'posembed_input' in restored_params.get('Transformer', {}):
     # Rescale the grid of position embeddings. Param shape is (1,N,1024)

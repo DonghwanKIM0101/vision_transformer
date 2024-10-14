@@ -30,9 +30,9 @@ install_requires = [
     'aqtp!=0.1.1',  # https://github.com/google/aqt/issues/196
     'clu',
     'einops',
-    'flax',
+    # 'flax',
     'flaxformer @ git+https://github.com/google/flaxformer',
-    'jax',
+    # 'jax',
     'ml-collections',
     'numpy',
     'packaging',
